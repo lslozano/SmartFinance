@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid section-padding">
+        <h1 class="section-title">Welcome to your Dashboard {{ session["username"] }}</h1>
+        <div class="container container-fluid dashboard-actions">
+            <a class="btn btn-primary btn-lg dashboard-btn" href="/details" role="button">View Options</a>
+        </div>
+        <div class="container container-fluid dashboard-cards-container">
+            <div class="dashboard-card">
+                <h3>Monthly Income</h3>
+                <p class="dashboard-card-text text-income">{{ user_income | usd }}</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Monthly Expenses</h3>
+                <p class="dashboard-card-text text-expense">{{ user_expenses | usd }}</p>
+            </div>
+            <div class="dashboard-card">
+                <h3>Balance</h3>
+                <p class="dashboard-card-text text-balance">{{ user_balance | usd }}</p>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/dashboard.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Change Income
+{% endblock %}
+
+{% block main %}
+    <section class="form-section">
+        <div class="card form-card">
+            <h3>New income?</h3>
+            <form action="/settings/change_income" method="post" class="form">
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <input autocomplete="off" autofocus class="form-control" id="income" name="income" placeholder="Monthly income" type="number">
+                </div>
+                <button class="btn btn-primary btn-width disabled-btn" id="change-income-btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/changeIncome.js') }}"></script>
+{% endblock %}

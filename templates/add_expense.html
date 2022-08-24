@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add expense
+{% endblock %}
+
+{% block main %}
+    <section class="form-section">
+        <div class="card form-card">
+            <h3>Want to submit an expense?</h3>
+            <form action="/add_expense" method="post" class="form">
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <label for="name" class="mb-2">In what did you make an expense?</label>
+                    <input autocomplete="off" autofocus class="form-control" id="name" name="name" placeholder="Five apples" type="text">
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <label for="total" class="mb-2">How much did you spend?</label>
+                    <input autocomplete="off" autofocus class="form-control" id="total" name="total" placeholder="5" type="numeric">
+                </div>
+                <div class="mb-3 input-container">
+                    <p>Type of expense?</p>
+                    <div class="radio-options-container">
+                        <input type="radio" id="life" name="type" value="Life">
+                        <label for="life">Life</label><br>
+                        <input type="radio" id="fun" name="type" value="Fun">
+                        <label for="recreational">Fun</label>
+                    </div>
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <label for="expense-date" class="mb-2">When did you make the expense?</label>
+                    <input type="date" class="form-control" id="expense-date" name="expense-date">
+                </div>
+                <button class="btn btn-primary btn-width disabled-btn" id="submit-expense-btn" type="submit">Submit expense</button>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/addExpense.js') }}"></script>
+{% endblock %}

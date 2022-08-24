@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    SmartFinance
+{% endblock %}
+
+{% block main %}
+    <section class="jumbotron main-banner">
+        <h1 class="display-4 banner-header">Free yourself from tracking your expenses. Leave it to us!</h1>
+        {% if session["user_id"] %}
+            <a class="btn btn-primary btn-lg cta-btn" href="/dashboard" role="button">Dashboard</a>
+        {% else %}
+            <a class="btn btn-primary btn-lg cta-btn" href="/register" role="button">Start now</a>
+        {% endif %}
+    </section>
+    <section class="container-fluid section-padding">
+        <h2 class="section-title">How does it work?</h2>
+        <div class="container cards-container">
+            <div class="card">
+                <img class="card-image" src="../static/images/card-1.jpg" alt="card-image" />
+                <h3>Keep track of your income</h3>
+                <p class="card-text">Set your monthly income to compare it against your expenses</p>
+            </div>
+            <div class="card">
+                <img class="card-image"  src="../static/images/card-2.jpg" alt="card-image" />
+                <h3>Register your expenses</h3>
+                <p class="card-text">Add your expenses through the Add Expense form, they can be type life or fun</p>
+            </div>
+            <div class="card">
+                <img class="card-image" src="../static/images/card-3.jpg" alt="card-image"/>
+                <h3>Reports</h3>
+                <p class="card-text">See reports for the current month, year or do a custom search to see if you went overbudget or still within your income range</p>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid section-padding section-how-to">
+        <h2 class="section-title">How to start?</h2>
+        <div class="container">
+            <ol>
+                <li class="list-margin-y">Register: Start by registering with a username and email.</li>
+                <li class="list-margin-y">Set your monthly income in your profile.</li>
+                <li class="list-margin-y">Each time you make an expense, fill out the expense form. Adding name of expense, how much and what type.</li>
+                <li class="list-margin-y">At your dashboard you will see your income, expenses and balance for the current month.</li>
+            </ol>
+        </div>
+        {% if session["user_id"] %}
+            <button type="button" class="btn btn-primary cta-button-white"><a href="/dashboard">Dashboard</a></button>
+        {% else %}
+            <button type="button" class="btn btn-primary cta-button-white"><a href="/register">Ready to start?</a></button>
+        {% endif %}
+    </section>
+{% endblock %}

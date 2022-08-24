@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid section-padding">
+        <h1 class="section-title">Welcome to your Settings {{ session["username"] }}</h1>
+        <div class="profile-actions">
+            <a class="btn btn-primary btn-lg profile-btn" href="/settings/change_password" role="button">Change Password</a>
+            <a class="btn btn-primary btn-lg profile-btn" href="/settings/change_income" role="button">Change Income</a>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid section-padding">
+        <h1 class="section-title">Results</h1>
+        <div>
+            {% if not expenses_list %}
+                <h2 class="text-empty-state">Your search didn't produce any results.</h2>
+            {% else %}
+                <div class="all-quantities-container">
+                    <p>Income: <span class="text-income">{{ user_income | usd }}</span></p>
+                    <p>Expenses: <span class="text-expense">{{ user_expenses | usd }}</span></p>
+                    <p>Balance: <span class="text-balance">{{ user_balance | usd }}</span></p>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total</th>
+                            <th>Type</th>
+                            <th class="day-column">Day</th>
+                            <th class="month-column ">Month</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for expense_register in expenses_list %}
+                            <tr>
+                                {% for data in expense_register[2:8] %}
+                                    {% if loop.index == 2 %}
+                                        <td>{{ data | usd }}</td>
+                                    {% elif loop.index == 4 %}
+                                        <td class="day-data">{{ data }}</td>
+                                    {% elif loop.index == 5 %}
+                                        <td class="month-data">{{ data }}</td>
+                                    {% else %}
+                                        <td>{{ data }}</td>
+                                    {% endif %}
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/dashboard.js') }}"></script>
+{% endblock %}

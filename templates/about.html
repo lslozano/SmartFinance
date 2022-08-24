@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+    <section class="jumbotron about-banner">
+        <h1 class="display-4 banner-header">Smart Finance</h1>
+        <p class="banner-text">Tracking your our expenses is important and it takes time.</p>
+        <p class="banner-text">We are here to help you on that front</p>
+    </section>
+    <section class="container-fluid section-padding section">
+        <h2 class="about-section-header">About Smart Finance</h2>
+        <p class="section-text">SmartFinance is born out of the necessity to track monthly expenses and compare them against our income.</p>
+        <p class="section-text">
+            What SmartFinance does, is help you out in keeping a record on your income versus your expenses and
+            giving you the tools to easily do this.
+        </p>
+        <p class="section-text">
+            With SmartFinance, you can register your expenses and automatically get a resulting balance.
+        </p>
+    </section>
+    <section class="section-padding section cta-section">
+        <p class="section-text">Ready to free yourself from the hustle of tracking your expenses?</p>
+        {% if session["user_id"] %}
+            <a class="btn btn-primary cta-button-white" href="/dashboard" role="button">Dashboard</a>
+        {% else %}
+            <a class="btn btn-primary cta-button-white" href="/register" role="button">Start now</a>
+        {% endif %}
+    </section>
+{% endblock %}

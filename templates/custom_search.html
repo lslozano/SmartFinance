@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Custom Search
+{% endblock %}
+
+{% block main %}
+    <section class="form-section">
+        <div class="card form-card search-container">
+            <h3>Custom search</h3>
+            <form action="/details/custom_search" method="post" class="form search-form">
+                <div class="mb-3 input-container">
+                    <p>Type of expense:</p>
+                    <div class="radio-options-container">
+                        <input type="radio" id="all" name="type" value="All">
+                        <label for="recreational">All</label>
+                        <input type="radio" id="life" name="type" value="Life">
+                        <label for="life">Life</label><br>
+                        <input type="radio" id="fun" name="type" value="Fun">
+                        <label for="recreational">Fun</label>
+                    </div>
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <label for="expense-date" class="mb-2">Select start date</label>
+                    <input type="date" class="form-control" id="start-date" name="start-date">
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <label for="expense-date" class="mb-2">Select end date</label>
+                    <input type="date" class="form-control" id="end-date" name="end-date">
+                </div>
+                <button class="btn btn-primary btn-width disabled-btn" id="submit-search-btn" type="submit">Search</button>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/searchExpense.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}
+    Details
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid section-padding">
+        <h1 class="section-title">Select the desired option:</h1>
+        <div class="details-actions">
+            <a class="btn btn-primary btn-lg details-btn" href="/details/current_month" role="button">Current Month</a>
+            <a class="btn btn-primary btn-lg details-btn" href="/details/current_year" role="button">Current Year</a>
+            <a class="btn btn-primary btn-lg details-btn" href="/details/custom_search" role="button">Custom Search</a>
+            <a class="btn btn-primary btn-lg details-btn" href="/dashboard" role="button">Dashboard</a>
+        </div>
+    </section>
+{% endblock %}

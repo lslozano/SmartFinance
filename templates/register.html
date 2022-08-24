@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <section class="form-section">
+        <div class="card form-card">
+            <h3>Ready to start tracking your expenses?</h3>
+            <form action="/register" method="post" class="form">
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text">
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <input autocomplete="off" autofocus class="form-control" id="income" name="income" placeholder="Monthly income" type="number">
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <input class="form-control password" id="password" autocomplete="new-password" name="password" placeholder="Password" type="password">
+                </div>
+                <div class="mb-3 password-strength-bar">
+                    <div class="password-bar"></div>
+                    <div class="password-bar"></div>
+                    <div class="password-bar"></div>
+                </div>
+                <div class="mb-3 input-container">
+                    <p class="required-text">Required</p>
+                    <input class="form-control confirm-password" id="confirm-password" autocomplete="new-password" name="confirmation" placeholder="Confirm password" type="password">
+                </div>
+                <div class="mb-3 passwords-match">
+                    <p class="information-text"></p>
+                </div>
+                <button class="btn btn-primary btn-width disabled-btn" id="register-user-btn" type="submit">Register</button>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="/login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/register.js') }}"></script>
+{% endblock %}

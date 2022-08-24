@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <section class="container-fluid section-padding section">
+        <div class="card">
+            <img class="card-image" src="../static/images/error.jpg" alt="card-image" />
+            <p class="card-text">{{ error_message }}</p>
+            <p class="card-text">You will be redirected to {{ page }} in a few seconds.</p>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='/js/apology.js') }}"></script>
+{% endblock %}

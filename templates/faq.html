@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}
+    FAQ
+{% endblock %}
+
+{% block main %}
+    <section class="jumbotron faq-banner">
+        <h1 class="display-4 banner-header">Why SmartFinance?</h1>
+        <p class="banner-text">It's important to keep track of our expenses and it takes time.</p>
+        <p class="banner-text">SmartFinance frees that time for you.</p>
+    </section>
+    <section class="container-fluid section-padding section">
+        <h2 class="about-section-header">FAQ</h2>
+        <p class="section-text">1.- What is SmartFinance? An expense tracker.</p>
+        <p class="section-text">2.- How does it work? The user submits its expense via a form. SmartFinance saves it and compares it against the user's income.</p>
+        <p class="section-text">3.- How do I check my balance? In your dashboard.</p>
+        <p class="section-text">4.- Is my information secure? Yes, your information is safe and never shared with anyone.</p>
+    </section>
+    <section class="section-padding section cta-section">
+        <p class="section-text">Ready to free yourself from the hustle of tracking your expenses?</p>
+        {% if session["user_id"] %}
+            <a class="btn btn-primary cta-button-white" href="/dashboard" role="button">Dashboard</a>
+        {% else %}
+            <a class="btn btn-primary cta-button-white" href="/register" role="button">Start now</a>
+        {% endif %}
+    </section>
+{% endblock %}
